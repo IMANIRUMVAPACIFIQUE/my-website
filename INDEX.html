@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dank Limited | Executive Banking & Stationery | Daniel Uwimana</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Poppins:wght@200;300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* DANK LIMITED - ARCHITECTURAL DESIGN SYSTEM
+           Principal: Daniel Uwimana
+           Location: Nyamata, Bugesera
+           Color Palette: Midnight Navy, Metallic Gold, Pure White
+        */
+
+        :root {
+            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            --shimmer-gold: linear-gradient(90deg, #b38728, #fcf6ba, #b38728);
+            --navy-deep: #02060f;
+            --navy-card: #0a1221;
+            --gold-border: rgba(212, 175, 55, 0.4);
+            --text-main: #e0e0e0;
+            --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* --- GLOBAL RESET & SMOOTHING --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--navy-deep); 
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* --- DYNAMIC METALLIC ANIMATIONS --- */
+        @keyframes gold-shine {
+            0% { background-position: -200%; }
+            100% { background-position: 200%; }
+        }
+
+        .gold-shine-text {
+            background: var(--gold-gradient);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gold-shine 5s linear infinite;
+            font-weight: 800;
+        }
+
+        /* --- BACKGROUND ATMOSPHERE --- */
+        .scenery-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(2, 6, 15, 0.9), rgba(2, 6, 15, 0.95)),
+                        url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        /* --- EXECUTIVE NAVIGATION --- */
+        nav {
+            height: 110px;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--gold-border);
+            backdrop-filter: blur(20px);
+        }
+
+        .nav-brand { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-decoration: none; }
+
+        .nav-links { display: flex; gap: 40px; align-items: center; }
+        .nav-links a { 
+            text-decoration: none; color: white; font-size: 0.85rem; 
+            letter-spacing: 2px; text-transform: uppercase; transition: var(--transition-smooth);
+        }
+        .nav-links a:hover { color: #D4AF37; transform: scale(1.1); }
+
+        .lang-toggle {
+            padding: 10px 25px;
+            border: 1px solid #D4AF37;
+            background: transparent;
+            color: #D4AF37;
+            border-radius: 2px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        .lang-toggle:hover { background: var(--gold-gradient); color: black; }
+
+        /* --- HERO SPLASH --- */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 15%;
+        }
+
+        .hero-section h1 { font-family: 'Playfair Display', serif; font-size: 6rem; margin-bottom: 10px; }
+        .hero-section p { font-size: 1.5rem; letter-spacing: 5px; opacity: 0.7; text-transform: uppercase; }
+
+        /* --- MAIN CONTENT STRUCTURE --- */
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
+
+        .executive-welcome {
+            background: var(--navy-card);
+            padding: 100px;
+            margin-top: -100px;
+            border: 1px solid var(--gold-border);
+            position: relative;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.7);
+        }
+
+        .welcome-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .welcome-text h2 { font-size: 3rem; margin-bottom: 30px; font-family: 'Playfair Display', serif; }
+        .welcome-text p { font-size: 1.1rem; color: #b0b0b0; margin-bottom: 20px; }
+
+        /* --- BANKING & SERVICES CIRCLES --- */
+        .partners-section { padding: 100px 0; text-align: center; }
+
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .partner-card {
+            width: 250px;
+            transition: var(--transition-smooth);
+        }
+
+        .circle-frame {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: white;
+            margin: 0 auto 25px;
+            padding: 40px;
+            border: 3px solid #D4AF37;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circle-frame img { width: 100%; height: auto; transition: 0.5s; }
+        .partner-card:hover .circle-frame { transform: rotateY(180deg); border-color: white; }
+        .partner-card p { font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+
+        /* --- SERVICE TABLE --- */
+        .data-section { margin: 100px 0; }
+        .gold-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--gold-border);
+        }
+        .gold-table th { background: #D4AF37; color: black; padding: 25px; text-align: left; font-size: 1.2rem; }
+        .gold-table td { padding: 25px; border-bottom: 1px solid rgba(212, 175, 55, 0.1); color: #ccc; }
+
+        /* --- INTERACTIVE MAP --- */
+        .map-wrapper {
+            height: 600px;
+            border: 2px solid var(--gold-border);
+            margin: 80px 0;
+            filter: grayscale(100%) invert(90%) contrast(110%);
+        }
+
+        /* --- CONTACT FLOATING CONSOLE --- */
+        .contact-console {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 9999;
+        }
+
+        .console-btn {
+            background: var(--gold-gradient);
+            color: #000;
+            padding: 20px 45px;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .console-btn:hover { transform: translateY(-10px) scale(1.05); box-shadow: 0 20px 45px rgba(212, 175, 55, 0.4); }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #000;
+            padding: 120px 5%;
+            text-align: center;
+            border-top: 1px solid var(--gold-border);
+        }
+        .footer-logo { font-size: 3rem; margin-bottom: 20px; }
+
+        /* --- MOBILE ADAPTATION --- */
+        @media (max-width: 1024px) {
+            .welcome-grid { grid-template-columns: 1fr; }
+            .hero-section h1 { font-size: 4rem; }
+            .executive-welcome { padding: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scenery-overlay"></div>
+
+    <nav>
+        <a href="#" class="nav-brand gold-shine-text">DANK LIMITED</a>
+        <div class="nav-links">
+            <a href="#about">Philosophy</a>
+            <a href="#banking">Partners</a>
+            <a href="#services">Catalog</a>
+            <button class="lang-toggle" onclick="toggleLang()">EN / KN</button>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <h1 class="gold-shine-text">Legacy of Excellence</h1>
+        <p>Managed by Daniel Uwimana</p>
+    </header>
+
+    <div class="container">
+        <section id="about" class="executive-welcome">
+            <div class="welcome-grid">
+                <div class="welcome-text">
+                    <h2 class="gold-shine-text" id="wTitle">The Daniel Uwimana Promise</h2>
+                    <p id="w1">Welcome to Dank Limited, a premier establishment located in the heart of Nyamata, Bugesera, Rwanda. Owned and operated by <strong>Daniel Uwimana</strong>, our company stands as a beacon of reliability and professional excellence for the local community.</p>
+                    <p id="w2">We have meticulously designed our services to meet the diverse needs of students, educators, and business professionals. Whether you are looking for the finest classic pencils or seeking to secure your business through Bank of Kigali and Equity Bank services, we are your trusted hub.</p>
+                </div>
+                <div class="welcome-visual" style="border: 1px solid var(--gold-border); padding: 20px; display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center;">
+                        <h3 class="gold-shine-text" style="font-size: 4rem;">BK</h3>
+                        <p style="letter-spacing: 10px;">AUTHORIZED</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="banking" class="partners-section">
+            <h2 class="gold-shine-text" style="font-size: 3rem;">Financial Partners</h2>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="circle-frame">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Bank_of_Kigali_logo.png/220px-Bank_of_Kigali_logo.png" alt="BK">
+                    </div>
+                    <p class="gold-shine-text">Bank of Kigali</p>
+                </div>
+                <div class="partner-card">
+                    <div class="circle-frame">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Equity_Bank_Logo.svg/1200px-Equity_Bank_Logo.svg.png" alt="Equity">
+                    </div>
+                    <p class="gold-shine-text">Equity Bank</p>
+                </div>
+                <div class="partner-card">
+                    <div class="circle-frame" style="background: #000; border: none;">
+                        <h2 style="color: gold; font-size: 2.5rem;">RRA</h2>
+                    </div>
+                    <p class="gold-shine-text">RRA Services</p>
+                </div>
+                <div class="partner-card">
+                    <div class="circle-frame">
+                        <img src="https://images.unsplash.com/photo-1585336139118-107b4430f021?q=80&w=300" alt="Stationery" style="border-radius: 50%;">
+                    </div>
+                    <p class="gold-shine-text">Premium Retail</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="data-section">
+            <h2 class="gold-shine-text" style="font-size: 2.5rem; margin-bottom: 40px; text-align: center;">Inventory & Solutions</h2>
+            <table class="gold-table">
+                <thead>
+                    <tr>
+                        <th>Class of Service</th>
+                        <th>Specific Solution</th>
+                        <th>Executive Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Banking Hub</td><td>BK & Equity Agent Services</td><td>Premium Support</td></tr>
+                    <tr><td>Taxation</td><td>RRA Declaration Assistance</td><td>Professional</td></tr>
+                    <tr><td>Educational</td><td>Classic Pencils & Academic Books</td><td>In-Stock</td></tr>
+                    <tr><td>Business</td><td>Office File Organization Units</td><td>In-Stock</td></tr>
+                    <tr><td>Creative</td><td>Professional Grade Markers</td><td>Premium</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <div class="map-wrapper">
+            <iframe width="100%" height="100%" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15947.2458421808!2d30.0784!3d-2.1481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19d906152a510615%3A0x6b7802a510615!2sNyamata!5e0!3m2!1sen!2srw!4v1620000000000"></iframe>
+        </div>
+    </div>
+
+    <div class="contact-console">
+        <a href="https://wa.me/25078551734" class="console-btn">Chat on WhatsApp</a>
+        <a href="tel:078551734" class="console-btn">Voice: 078551734</a>
+    </div>
+
+    <footer>
+        <div class="footer-logo gold-shine-text">DANK LIMITED</div>
+        <p>Owned by Daniel Uwimana</p>
+        <p>Nyamata District Center, Bugesera, Rwanda</p>
+        <p style="margin-top: 40px; opacity: 0.3; font-size: 0.8rem;">ESTABLISHED 2026 | ALL RIGHTS RESERVED</p>
+    </footer>
+
+    <script>
+        let currentLang = 'EN';
+        function toggleLang() {
+            const h = document.getElementById('heroH');
+            const wT = document.getElementById('wTitle');
+            const w1 = document.getElementById('w1');
+            const w2 = document.getElementById('w2');
+
+            if (currentLang === 'EN') {
+                wT.innerText = "Isezerano rya Daniel Uwimana";
+                w1.innerText = "Murakaza neza kuri Dank Limited, ikigo cy'indashyikirwa giherereye mu mujyi rwagati wa Nyamata, Bugesera. Dank Limited iyoborwa na Daniel Uwimana.";
+                w2.innerText = "Dufite ibikoresho by'ishuri nka makaramu n'ibitabo, ndetse na serivisi za banki (BK na Equity) n'izishyuza imisoro (RRA). Tubategereje n'amaboko yombi.";
+                currentLang = 'KN';
+            } else {
+                location.reload();
+            }
+        }
+    </script>
+</body>
+</html>
